@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="main-container">
+    <div class="top-bar">
+      <h2>Welcome, <%= username %></h2>
+      <div>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+
+    <div class="actions">
+        <a href="/main/posts/new">Create New Post</a>
+    </div>
+
+    <hr />
+
+    <% if (!posts || posts.length === 0) { %>
+      <p>No posts yet.</p>
+    <% } %>
+
+    <% posts.forEach(function(p) { %>
+      <div class="post">
+        <div class="post-header">
+          <strong><%= p.author %></strong>
+          <span style="margin-left: 10px; opacity: 0.7;">
+            <%= new Date(p.createdAt).toLocaleString() %>
+          </span>
+        </div>
+
+        <p><%= p.content %></p>
+
+        <div class="post-actions">
+          <form action="/main/posts/<%= p._id %>/like" method="POST" style="display:inline;">
+            <button type="submit">Like (<%= p.likes %>)</button>
+          </form>
+
+          <% if ((roles && roles.includes("admin")) || p.author === username) { %>
+            <form action="/main/posts/<%= p._id %>/delete" method="POST" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          <% } %>
+        </div>
+      </div>
+      <hr />
+    <% }); %>
+  </div>
+</body>
+</html>

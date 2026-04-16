@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script>
+    function validateForm(event) {
+      const password = document.getElementById('password').value;
+      const passwordcheck = document.getElementById('passwordcheck').value;
+
+      if (password !== passwordcheck) {
+        event.preventDefault();
+        alert('Passwords do not match. Please try again.');
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+
+    <% if (typeof error !== "undefined" && error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+
+    <% if (typeof success !== "undefined" && success) { %>
+      <p class="success"><%= success %></p>
+    <% } %>
+
+    <form action="/signup" method="POST" onsubmit="validateForm(event)">
+      <label for="id">Username:</label>
+      <input type="text" id="id" name="id" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="passwordcheck">Confirm Password:</label>
+      <input type="password" id="passwordcheck" name="passwordcheck" required />
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="/login">Login here</a>.</p>
+  </div>
+</body>
+</html>
