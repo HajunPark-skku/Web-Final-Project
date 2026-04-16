@@ -1,0 +1,77 @@
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a { text-decoration: none; }
+  hr { margin: 16px 0; }
+  
+  /* 일반 메세지들 */
+  .error {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #cc0000;
+  }
+  
+  .success {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #008000;
+  }
+  
+  /* Login & Signup */
+  .login-container,
+  .signup-container,
+  .success-container,
+  .main-container,
+  .newpost-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  label {
+    display: block;
+    margin-top: 12px;
+  }
+  
+  input, textarea, button {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 10px;
+  }
+  
+  button {
+    margin-top: 14px;
+    cursor: pointer;
+  }
+  
+  /* 메인 피드 */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .actions {
+    margin: 10px 0;
+  }
+  
+  .post {
+    padding: 12px 0;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  
+  .post-actions form {
+    display: inline;
+    margin-right: 10px;
+  }
+  
